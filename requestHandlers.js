@@ -10,7 +10,11 @@ function start(response, postData) {
     '</head>'+
     '<body>'+
     '<form action="/upload" method="post">'+
-    '<textarea name="text" rows="2" cols="30"></textarea>'+
+    '<b>用户: </b>'+
+    '<textarea name="text" rows="1" cols="30"></textarea>'+
+    '<br>'+'<br>'+
+    '<b>密码: </b>'+
+    '<textarea name="text" rows="1" cols="30"></textarea>'+
     '<br>'+
     '<input type="submit" value="登陆" />'+
     '</form>'+
@@ -24,6 +28,17 @@ function start(response, postData) {
 
 function upload(response, postData) 
 {
+  var requestText = querystring.parse(postData).text;
+
+  // console.log(typeof requestText);
+  // console.log(requestText);
+  // var srtList = requestText.split(",");
+  var uName = requestText[0];
+  var passw = requestText[1];
+
+  console.log("8888"+uName+"  --- "+ passw);
+
+
   console.log("Request handler 'upload' was called.");
   response.writeHead(200, {"Content-Type": "text/plain"});
   response.write("You've sent the text: "+

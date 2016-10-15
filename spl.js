@@ -27,7 +27,7 @@ function selece(tableName, val)
 
 function endSQL()
 {
-    connection.end();ß
+    connection.end();
 }
 
 exports.startSQL=startSQL;
